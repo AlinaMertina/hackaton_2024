@@ -1,19 +1,22 @@
 package com.hackaton.hariart.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 
 @Entity
 @Table(name = "preference")
 public class Preference {
-	
+
 	@JoinColumn(name = "id_profil")
 	@ManyToOne
+	@JsonBackReference
 	Profil profil;
-	
+
 	@Column(name = "note")
 	Integer note;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_preference")
@@ -25,6 +28,7 @@ public class Preference {
 
 
 	public Preference(){}
+
 	public Profil getProfil(){
 		return this.profil;
 	}
