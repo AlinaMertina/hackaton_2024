@@ -13,7 +13,7 @@ CREATE TABLE Nationalite(
 CREATE TABLE Tags(
    id_tag SERIAL,
    tag VARCHAR(50) UNIQUE,
-   PRIMARY KEY(tag)
+   PRIMARY KEY(id_tag)
 );
 
 CREATE TABLE Media(
@@ -76,26 +76,29 @@ CREATE TABLE commentaire(
 );
 
 CREATE TABLE Tags_publication(
+   id_tag_publication SERIAL,
    tag INT,
    id_publication INT,
-   PRIMARY KEY(tag, id_publication),
-   FOREIGN KEY(tag) REFERENCES Tags(tag),
+   PRIMARY KEY(id_tag_publication),
+   FOREIGN KEY(tag) REFERENCES Tags(id_tag),
    FOREIGN KEY(id_publication) REFERENCES Publication(id_publication)
 );
 
 CREATE TABLE Media_publication(
+   id_media_publication SERIAL,
    id_publication INT,
    id_media INT,
-   PRIMARY KEY(id_publication, id_media),
+   PRIMARY KEY(id_media_publication),
    FOREIGN KEY(id_publication) REFERENCES Publication(id_publication),
    FOREIGN KEY(id_media) REFERENCES Media(id_media)
 );
 
 CREATE TABLE Preference(
+   id_preference SERIAL,
    id_profil INT,
    tag INT,
    note INTEGER,
-   PRIMARY KEY(id_profil, tag),
+   PRIMARY KEY(id_preference),
    FOREIGN KEY(id_profil) REFERENCES Profil(id_profil),
    FOREIGN KEY(tag) REFERENCES Tags(tag)
 );
