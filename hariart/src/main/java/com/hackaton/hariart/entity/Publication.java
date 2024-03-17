@@ -116,4 +116,13 @@ public class Publication {
 		this.tags = tags;
 	}
 
+	public boolean checkDoublant(List<Publication> publications) {
+		for (Publication publication : publications) {
+			if (publication.getIdPublication().equals(this.getIdPublication())) {
+				return true;
+			}		
+		}
+		return false;
+	}
+
 }

@@ -1,7 +1,11 @@
 package com.hackaton.hariart.entity;
 
 import jakarta.persistence.*;
+
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -99,11 +103,26 @@ public class Profil {
 		this.nationalite = nationalite;
 	}
 
-	public Publication[] proposer(String nombre) {
-		Publication publication = new Publication();
-		publication.setDescription("Plongez dans un monde de saveurs exquises avec notre nouvelle collection de recettes gastronomiques. De l'entrée au dessert, laissez-vous envoûter par des créations culinaires uniques et raffinées.");
-		
-		return null;
+	public double getNoteTotal() {
+		double somme = 0.0;
+		for (Preference preference : preferences) {
+			somme += preference.getNote();
+		}
+		return somme;
+	}
+	
+	public List<Publication> proposer(String nombre) throws SQLException, Exception {
+		List<Publication> publications = new ArrayList<>();
+		try (Connection connection = Bdd.getPostgreSQL()) {
+			for (Preference preference : preferences) {
+				for (Publication publication : preference.proposer(connection)) {
+					if (publication.checkDoublant(publications)) {
+						publications.add(publication);
+					}
+				}
+			}
+		}
+		return publications;
 	}
 
 }
