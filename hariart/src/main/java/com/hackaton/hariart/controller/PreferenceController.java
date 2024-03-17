@@ -1,10 +1,14 @@
 package com.hackaton.hariart.controller;
 
 import com.hackaton.hariart.repository.PreferenceRepository;
+import com.hackaton.hariart.service.TagService;
 import com.hackaton.hariart.entity.Preference;
 import org.springframework.http.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @CrossOrigin("*")
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 public class PreferenceController {
 	@Autowired
 	private PreferenceRepository repository;
+	@Autowired
+	private TagService service;
 
 	@PostMapping()
 	public ResponseEntity<Preference> save(@RequestBody Preference preference){
@@ -29,6 +35,13 @@ public class PreferenceController {
 	public ResponseEntity<Iterable<Preference>> findAll(){
 	 	return ResponseEntity.ok(repository.findAll());
 	}
+
+	@PostMapping(path = "preferences")
+	public String savePreferences(@RequestBody Preference[] lst) {
+		service.savePreferences(lst);
+		return "Inserted successfully";
+	}
+	
 
 
 }
