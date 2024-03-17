@@ -2,7 +2,6 @@ package com.hackaton.hariart.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +12,8 @@ import com.hackaton.hariart.entity.Action;
 import com.hackaton.hariart.entity.Commentaire;
 import com.hackaton.hariart.entity.Profil;
 import com.hackaton.hariart.entity.Publication;
+import com.hackaton.hariart.entity.ReactRequest;
+import com.hackaton.hariart.entity.CommentRequest;
 import com.hackaton.hariart.service.Interact;
 
 @RestController
@@ -24,14 +25,20 @@ public class InteractController {
 
 
     @PostMapping(path = "react")
-	public ResponseEntity<?> reagir(@RequestBody Profil profil,@RequestBody Publication publication, @RequestBody Action action){
+	public ResponseEntity<?> reagir(@RequestBody ReactRequest request){
+        Action action = request.getAction();
+        Profil profil = request.getProfil();
+        Publication publication = request.getPublication();
 	 	service.react(profil, publication, action);
         return ResponseEntity.ok("reaction ok");
 	}
 
     @PostMapping(path = "comment")
-	public ResponseEntity<?> commenter(@RequestBody Profil profil,@RequestBody Publication publication, @RequestBody Commentaire commentaire){
-	 	service.comment(profil, publication, commentaire);
+	public ResponseEntity<?> commenter(@RequestBody CommentRequest request){
+        Commentaire commentaire = request.getCommentaire();
+        Profil profil = request.getProfil();
+        Publication publication = request.getPublication();
+        service.comment(profil, publication, commentaire);
         return ResponseEntity.ok("comment ok");
 	}
 }
