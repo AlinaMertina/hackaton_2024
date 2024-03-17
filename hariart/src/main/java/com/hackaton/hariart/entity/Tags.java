@@ -29,4 +29,9 @@ public class Tags {
 		this.tag = tag;
 	}
 
+	public double getPercent(Profil profil) {
+		profil.getPercent();
+		return 0.0;
+	}
+
 }
