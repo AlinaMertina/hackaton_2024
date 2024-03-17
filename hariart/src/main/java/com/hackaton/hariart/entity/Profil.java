@@ -2,6 +2,10 @@ package com.hackaton.hariart.entity;
 
 import jakarta.persistence.*;
 import java.sql.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "profil")
@@ -29,6 +33,14 @@ public class Profil {
 	@ManyToOne
 	Nationalite nationalite;
 
+	@JsonManagedReference
+	@OneToMany
+	@JoinTable(
+		name = "preference",
+		joinColumns = @JoinColumn(name = "id_profil"),
+		inverseJoinColumns = @JoinColumn(name = "id_preference")
+	)
+	List<Preference> preferences; 
 
 	public Profil(){}
 	
@@ -66,6 +78,15 @@ public class Profil {
 
 	public Genre getGenre() {
 		return this.genre;
+	}
+
+
+	public List<Preference> getPreferences() {
+		return preferences;
+	}
+
+	public void setPreferences(List<Preference> preferences) {
+		this.preferences = preferences;
 	}
 
 	public void setGenre(Genre genre) {
