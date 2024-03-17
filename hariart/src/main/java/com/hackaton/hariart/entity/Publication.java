@@ -5,29 +5,56 @@ import jakarta.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "publication")
 public class Publication {
+
 	@JoinColumn(name = "id_profil")
 	@ManyToOne
 	Profil profil;
+
 	@Column(name = "nombre_vue")
 	Integer nombreVue;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_publication")
 	Integer idPublication;
+
 	@Column(name = "latitude")
 	Double latitude;
+
 	@Column(name = "date_debut")
 	Date dateDebut;
+
 	@Column(name = "description")
 	String description;
+	
 	@Column(name = "date_fin")
 	Date dateFin;
+	
 	@Column(name = "longitude")
 	Double longitude;
 
+
+	@ManyToMany
+	@JoinTable(
+		name = "media_publication",
+		joinColumns = @JoinColumn(name = "id_publication"),
+		inverseJoinColumns = @JoinColumn(name = "id_media")
+	)
+	List<Media> medias;
+
+
+	@ManyToMany
+	@JoinTable(
+		name = "tags_publication",
+		joinColumns = @JoinColumn(name = "id_publication"),
+		inverseJoinColumns = @JoinColumn(name = "tag")
+	)
+	List<Tags> tags;
 
 	public Publication(){}
 	public Profil getProfil(){
@@ -77,6 +104,18 @@ public class Publication {
 	}
 	public void setLongitude(Double longitude){
 		this.longitude = longitude;
+	}
+	public List<Media> getMedias() {
+		return medias;
+	}
+	public void setMedias(List<Media> medias) {
+		this.medias = medias;
+	}
+	public List<Tags> getTags() {
+		return tags;
+	}
+	public void setTags(List<Tags> tags) {
+		this.tags = tags;
 	}
 
 	public boolean checkDoublant(List<Publication> publications) {
