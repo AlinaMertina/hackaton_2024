@@ -30,7 +30,7 @@ public class Tags {
 	}
 
 	public double getPercent(Profil profil) {
-		profil.getPercent();
+		// profil.getPercent();
 		return 0.0;
 	}
 

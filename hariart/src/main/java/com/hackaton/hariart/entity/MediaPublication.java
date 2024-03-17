@@ -1,7 +1,5 @@
 package com.hackaton.hariart.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.*;
 
 
