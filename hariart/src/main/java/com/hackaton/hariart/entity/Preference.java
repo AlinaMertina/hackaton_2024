@@ -6,15 +6,19 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "preference")
 public class Preference {
+	
 	@JoinColumn(name = "id_profil")
 	@ManyToOne
 	Profil profil;
+	
 	@Column(name = "note")
 	Integer note;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_preference")
 	Integer idPreference;
+	
 	@JoinColumn(name = "tag")
 	@ManyToOne
 	Tags tags;
