@@ -11,7 +11,8 @@ CREATE TABLE Nationalite(
 );
 
 CREATE TABLE Tags(
-   tag SERIAL,
+   id_tag SERIAL,
+   tag VARCHAR(50) UNIQUE,
    PRIMARY KEY(tag)
 );
 

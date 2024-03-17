@@ -8,15 +8,24 @@ import jakarta.persistence.*;
 public class Tags {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_tag")
+	Integer idTag;
 	@Column(name = "tag")
-	Integer tag;
+	String tag;
 
 
 	public Tags(){}
-	public Integer getTag(){
+	
+	public Integer getIdTag(){
+		return this.idTag;
+	}
+	public void setIdTag(Integer id){
+		this.idTag = id;
+	}
+	public String getTag(){
 		return this.tag;
 	}
-	public void setTag(Integer tag){
+	public void setTag(String tag){
 		this.tag = tag;
 	}
 
