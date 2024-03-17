@@ -19,13 +19,13 @@ CREATE TABLE Tags(
 CREATE TABLE Media(
    id_media SERIAL,
    valeur TEXT,
-   type SERIAL,
+   type VARCHAR(50),
    PRIMARY KEY(id_media)
 );
 
 CREATE TABLE Action(
    id_action SERIAL,
-   valeur SERIAL,
+   valeur VARCHAR(50),
    note DOUBLE PRECISION,
    PRIMARY KEY(id_action)
 );
@@ -45,7 +45,7 @@ CREATE TABLE Profil(
 CREATE TABLE Publication(
    id_publication SERIAL,
    description VARCHAR(200) ,
-   nombre_vue INTEGER,
+   nombre_vue INT,
    id_profil INT NOT NULL,
    longitude DOUBLE PRECISION,
    latitude DOUBLE PRECISION,
@@ -57,7 +57,7 @@ CREATE TABLE Publication(
 
 CREATE TABLE reaction(
    id_reaction SERIAL,
-   valeur INTEGER,
+   valeur INT,
    id_publication INT NOT NULL,
    id_profil INT NOT NULL,
    PRIMARY KEY(id_reaction),
@@ -68,7 +68,7 @@ CREATE TABLE reaction(
 CREATE TABLE commentaire(
    id_commentaire SERIAL,
    valeur VARCHAR(200) ,
-   id_publication SERIAL NOT NULL,
+   id_publication INT NOT NULL,
    id_profil INT,
    PRIMARY KEY(id_commentaire),
    FOREIGN KEY(id_publication) REFERENCES Publication(id_publication),
@@ -97,7 +97,7 @@ CREATE TABLE Preference(
    id_preference SERIAL,
    id_profil INT,
    tag INT,
-   note INTEGER,
+   note INT,
    PRIMARY KEY(id_preference),
    FOREIGN KEY(id_profil) REFERENCES Profil(id_profil),
    FOREIGN KEY(tag) REFERENCES Tags(tag)

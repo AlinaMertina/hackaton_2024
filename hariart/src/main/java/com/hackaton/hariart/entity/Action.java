@@ -7,9 +7,9 @@ import jakarta.persistence.*;
 @Table(name = "action")
 public class Action {
 	@Column(name = "note")
-	Double note;
+	int note;
 	@Column(name = "valeur")
-	Integer valeur;
+	String valeur;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_action")
@@ -17,16 +17,16 @@ public class Action {
 
 
 	public Action(){}
-	public Double getNote(){
+	public int getNote(){
 		return this.note;
 	}
-	public void setNote(Double note){
+	public void setNote(int note){
 		this.note = note;
 	}
-	public Integer getValeur(){
+	public String getValeur(){
 		return this.valeur;
 	}
-	public void setValeur(Integer valeur){
+	public void setValeur(String valeur){
 		this.valeur = valeur;
 	}
 	public Integer getIdAction(){

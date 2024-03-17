@@ -13,7 +13,7 @@ public class Media {
 	@Column(name = "id_media")
 	Integer idMedia;
 	@Column(name = "type")
-	Integer type;
+	String type;
 
 
 	public Media(){}
@@ -29,10 +29,10 @@ public class Media {
 	public void setIdMedia(Integer idMedia){
 		this.idMedia = idMedia;
 	}
-	public Integer getType(){
+	public String getType(){
 		return this.type;
 	}
-	public void setType(Integer type){
+	public void setType(String type){
 		this.type = type;
 	}
 
