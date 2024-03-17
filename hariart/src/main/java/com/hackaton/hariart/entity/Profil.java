@@ -80,4 +80,11 @@ public class Profil {
 		this.nationalite = nationalite;
 	}
 
+	public Publication[] proposer(String nombre) {
+		Publication publication = new Publication();
+		publication.setDescription("Plongez dans un monde de saveurs exquises avec notre nouvelle collection de recettes gastronomiques. De l'entrée au dessert, laissez-vous envoûter par des créations culinaires uniques et raffinées.");
+		
+		return null;
+	}
+
 }
