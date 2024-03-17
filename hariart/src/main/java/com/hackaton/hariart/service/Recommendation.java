@@ -37,7 +37,7 @@ public class Recommendation {
         for(Preference preference : preferences){
             lstTag.set(0, preference.getTags());
             Pageable limit = PageRequest.of(0, getNumberToList((int)total));
-            res.addAll(publicationRepository.findByTags(lstTag, limit));
+            res.addAll(publicationRepository.findByTagsAndProfilNot(lstTag, profil, limit));
         }
         return res;
     }
