@@ -3,6 +3,7 @@ package com.hackaton.hariart.entity;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "publication")
@@ -76,6 +77,15 @@ public class Publication {
 	}
 	public void setLongitude(Double longitude){
 		this.longitude = longitude;
+	}
+
+	public boolean checkDoublant(List<Publication> publications) {
+		for (Publication publication : publications) {
+			if (publication.getIdPublication().equals(this.getIdPublication())) {
+				return true;
+			}		
+		}
+		return false;
 	}
 
 }
