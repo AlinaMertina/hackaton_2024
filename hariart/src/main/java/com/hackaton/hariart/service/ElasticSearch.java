@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hackaton.hariart.entity.Publication;
-import com.hackaton.hariart.entity.PythonResponse;
+import com.hackaton.hariart.mapping.PythonResponse;
 import com.hackaton.hariart.repository.PublicationRepository;
 import com.hackaton.hariart.service.api.Api;
 

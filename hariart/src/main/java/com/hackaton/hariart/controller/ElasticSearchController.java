@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackaton.hariart.entity.Publication;
-import com.hackaton.hariart.entity.PythonResponse;
+import com.hackaton.hariart.mapping.PythonResponse;
 import com.hackaton.hariart.service.ElasticSearch;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

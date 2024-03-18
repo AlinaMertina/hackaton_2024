@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.hackaton.hariart.entity.Photo;
-import com.hackaton.hariart.entity.PythonResponse;
+import com.hackaton.hariart.mapping.Photo;
+import com.hackaton.hariart.mapping.PythonResponse;
 
 @Service
 public class Api {

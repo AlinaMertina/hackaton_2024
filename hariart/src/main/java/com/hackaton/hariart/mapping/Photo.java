@@ -1,4 +1,4 @@
-package com.hackaton.hariart.entity;
+package com.hackaton.hariart.mapping;
 
 public class Photo {
     String image_base64;

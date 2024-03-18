@@ -12,8 +12,8 @@ import com.hackaton.hariart.entity.Action;
 import com.hackaton.hariart.entity.Commentaire;
 import com.hackaton.hariart.entity.Profil;
 import com.hackaton.hariart.entity.Publication;
-import com.hackaton.hariart.entity.ReactRequest;
-import com.hackaton.hariart.entity.CommentRequest;
+import com.hackaton.hariart.mapping.CommentRequest;
+import com.hackaton.hariart.mapping.ReactRequest;
 import com.hackaton.hariart.service.Interact;
 
 @RestController
