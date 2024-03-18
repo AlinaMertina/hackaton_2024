@@ -42,4 +42,4 @@ public class InteractController {
         service.comment(profil, publication, action, commentaire);
         return ResponseEntity.ok("comment ok");
 	}
-}
+}   

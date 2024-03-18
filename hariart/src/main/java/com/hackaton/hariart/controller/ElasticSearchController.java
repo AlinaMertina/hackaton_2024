@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackaton.hariart.entity.Publication;
+import com.hackaton.hariart.entity.PythonResponse;
 import com.hackaton.hariart.service.ElasticSearch;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,5 +28,14 @@ public class ElasticSearchController {
     public ResponseEntity<?> search(@RequestBody String query){
         List<Publication> res = service.search(query);
         return ResponseEntity.ok(res);
+    }
+
+    @PostMapping("photo")
+    public ResponseEntity<?> searchByPhoto(@RequestBody String photo){
+        try{
+            return ResponseEntity.ok(service.searchByPhoto(photo));
+        }catch(Exception e){
+            return ResponseEntity.ok(e.getMessage());
+        }
     }
 }

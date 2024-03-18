@@ -53,6 +53,11 @@ public class Interact {
             }
             preferenceRepository.save(preference);
         }
+        if(action.getIdAction() == 1){
+            publication.setNombreReaction(publication.getNombreReaction() + 1);
+        }else if(action.getIdAction() == 4){
+            publication.setNombreReaction(publication.getNombreReaction() - 1);
+        }
         publication.setNombreVue(publication.getNombreVue() + 1);
         publicationRepository.save(publication);
     }

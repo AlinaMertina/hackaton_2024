@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
 @Entity
 @Table(name = "publication")
 public class Publication {
@@ -15,6 +18,9 @@ public class Publication {
 
 	@Column(name = "nombre_vue")
 	Integer nombreVue;
+
+	@Column(name = "nombre_reaction")
+	Integer nombreReaction;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -45,6 +51,10 @@ public class Publication {
 	)
 	List<Media> medias;
 
+	@OneToMany
+	@JsonManagedReference
+	@JoinColumn( name = "id_publication" )
+	List<Commentaire> commentaires;
 
 	@ManyToMany
 	@JoinTable(
@@ -116,13 +126,17 @@ public class Publication {
 		this.tags = tags;
 	}
 
-	public boolean checkDoublant(List<Publication> publications) {
-		for (Publication publication : publications) {
-			if (publication.getIdPublication().equals(this.getIdPublication())) {
-				return true;
-			}		
-		}
-		return false;
+	public List<Commentaire> getCommentaires() {
+		return commentaires;
+	}
+	public void setCommentaires(List<Commentaire> commentaires) {
+		this.commentaires = commentaires;
+	}
+	public Integer getNombreReaction() {
+		return nombreReaction;
+	}
+	public void setNombreReaction(Integer nombreReaction) {
+		this.nombreReaction = nombreReaction;
 	}
 
 }

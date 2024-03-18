@@ -1,5 +1,7 @@
 package com.hackaton.hariart.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 
@@ -9,11 +11,15 @@ public class Commentaire {
 	@JoinColumn(name = "id_profil")
 	@ManyToOne
 	Profil profil;
+
 	@Column(name = "valeur")
 	String valeur;
+
 	@JoinColumn(name = "id_publication")
 	@ManyToOne
+	@JsonBackReference	
 	Publication publication;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_commentaire")

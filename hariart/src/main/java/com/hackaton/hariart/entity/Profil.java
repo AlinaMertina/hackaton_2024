@@ -110,19 +110,4 @@ public class Profil {
 		}
 		return somme;
 	}
-	
-	public List<Publication> proposer(String nombre) throws SQLException, Exception {
-		List<Publication> publications = new ArrayList<>();
-		try (Connection connection = Bdd.getPostgreSQL()) {
-			for (Preference preference : preferences) {
-				for (Publication publication : preference.proposer(connection)) {
-					if (publication.checkDoublant(publications)) {
-						publications.add(publication);
-					}
-				}
-			}
-		}
-		return publications;
-	}
-
 }
