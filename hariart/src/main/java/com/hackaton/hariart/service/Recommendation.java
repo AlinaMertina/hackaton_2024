@@ -3,7 +3,9 @@ package com.hackaton.hariart.service;
 import com.hackaton.hariart.entity.Preference;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -28,8 +30,8 @@ public class Recommendation {
         return (int)((20 * percent) / 100) ;
     }
 
-    public List<Publication> proposer(Profil profil, int number){
-        List<Publication> res = new ArrayList<>();
+    public Set<Publication> proposer(Profil profil, int number){
+        Set<Publication> res = new HashSet<>();
         List<Preference> preferences = profil.getPreferences();
         double total = profil.getNoteTotal();
         List<Tags> lstTag = new ArrayList<>();

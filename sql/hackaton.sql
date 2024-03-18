@@ -51,6 +51,7 @@ CREATE TABLE Publication(
    latitude DOUBLE PRECISION,
    date_debut DATE,
    date_fin DATE,
+   data TSVECTOR,
    PRIMARY KEY(id_publication),
    FOREIGN KEY(id_profil) REFERENCES Profil(id_profil)
 );
