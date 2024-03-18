@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "677d70d9-eb0b-4f19-b698-013db2482d07",
+		"name": "Hackaton_2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32602111",
+		"_collection_link": "https://red-sunset-710274.postman.co/workspace/My-Workspace~7193c3af-7f8c-4b3d-819f-1d46d3bd0996/collection/32602111-677d70d9-eb0b-4f19-b698-013db2482d07?action=share&source=collection_link&creator=32602111"
+	},
+	"item": [
+		{
+			"name": "Nationalite",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Nationalite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"valeur\":\"Nihon\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/nationalite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nationalite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profil",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/profil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profil",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nom\":\"huhu\",\n    \"prenom\":\"haha\",\n    \"dateNaissance\":\"2024-10-20\",\n    \"genre\":{\n        \"idGenre\":1\n    },\n    \"nationalite\":{\n        \"idNationalite\":1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/profil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Genre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/genre",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Genre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"valeur\":\"Femme\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genre",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tags",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tag\":\"vintage\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Preferences",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/preference",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"preference"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Preferences",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"profil\":{\n            \"idProfil\":8\n            },\n        \"note\":5,\n        \"tags\":{\n            \"idTag\":5\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/preference/preferences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"preference",
+						"preferences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publication",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/publication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"profil\":{\n        \"idProfil\":3\n    },\n    \"nombreVue\":1,\n    \"latitude\":100,\n    \"longitude\":210,\n    \"description\":\"huhu haha\",\n    \"dateDebut\":\"2024-08-12\",\n    \"dateFin\":\"2024-08-17\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/publication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Action",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/action",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"action"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Action",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"note\":1,\n    \"valeur\":\"Clicked\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/action",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"action"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "React",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"profil\":{\n        \"idProfil\": 8,\n        \"nom\": \"Aina\",\n        \"prenom\": \"Avotra\",\n        \"dateNaissance\": \"2004-02-02\",\n        \"genre\": {\n            \"valeur\": \"Homme\",\n            \"idGenre\": 1\n        },\n        \"nationalite\": {\n            \"valeur\": \"English\",\n            \"idNationalite\": 2\n        },\n        \"preferences\": [\n            {\n                \"note\": 2,\n                \"idPreference\": 8,\n                \"tags\": {\n                    \"idTag\": 12,\n                    \"tag\": \"Science\"\n                },\n                \"percent\": 100.0\n            },\n            {\n                \"note\": 2,\n                \"idPreference\": 47,\n                \"tags\": {\n                    \"idTag\": 13,\n                    \"tag\": \"Sport\"\n                },\n                \"percent\": 100.0\n            }\n        ],\n        \"noteTotal\": 5.0\n    },\n    \"publication\":{\n        \"profil\": {\n                \"idProfil\": 7,\n                \"nom\": \"Tendry\",\n                \"prenom\": \"Ny Avo\",\n                \"dateNaissance\": \"2004-02-02\",\n                \"genre\": {\n                    \"valeur\": \"Homme\",\n                    \"idGenre\": 1\n                },\n                \"nationalite\": {\n                    \"valeur\": \"English\",\n                    \"idNationalite\": 2\n                },\n                \"preferences\": [\n                    {\n                        \"note\": 5,\n                        \"idPreference\": 5,\n                        \"tags\": {\n                            \"idTag\": 5,\n                            \"tag\": \"Culture\"\n                        },\n                        \"percent\": 33.333333333333336\n                    },\n                    {\n                        \"note\": 5,\n                        \"idPreference\": 6,\n                        \"tags\": {\n                            \"idTag\": 9,\n                            \"tag\": \"Lifestyle\"\n                        },\n                        \"percent\": 33.333333333333336\n                    },\n                    {\n                        \"note\": 5,\n                        \"idPreference\": 7,\n                        \"tags\": {\n                            \"idTag\": 13,\n                            \"tag\": \"Sport\"\n                        },\n                        \"percent\": 33.333333333333336\n                    }\n                ],\n                \"noteTotal\": 15.0\n        },\n        \"nombreVue\": 8,\n        \"idPublication\": 7,\n        \"latitude\": 2.0,\n        \"dateDebut\": \"2023-02-03\",\n        \"description\": \"P5\",\n        \"dateFin\": \"2023-02-03\",\n        \"longitude\": 2.0,\n        \"medias\": [],\n        \"tags\": [\n            {\n                \"idTag\": 12,\n                \"tag\": \"Science\"\n            },\n            {\n                \"idTag\": 13,\n                \"tag\": \"Sport\"\n            }\n        ]\n    },\n    \"action\":{\n        \"note\": 2,\n        \"valeur\": \"Like\",\n        \"idAction\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/interact/react",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"interact",
+						"react"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recommendation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"profil\":{\n        \"idProfil\": 8,\n        \"nom\": \"Aina\",\n        \"prenom\": \"Avotra\",\n        \"dateNaissance\": \"2004-02-02\",\n        \"genre\": {\n            \"valeur\": \"Homme\",\n            \"idGenre\": 1\n        },\n        \"nationalite\": {\n            \"valeur\": \"English\",\n            \"idNationalite\": 2\n        },\n        \"preferences\": [\n            {\n                \"note\": 5,\n                \"idPreference\": 8,\n                \"tags\": {\n                    \"idTag\": 12,\n                    \"tag\": \"Science\"\n                },\n                \"percent\": 100.0\n            }\n        ],\n        \"noteTotal\": 5.0\n    },\n    \"number\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/profil/proposer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profil",
+						"proposer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eslatic search text",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Sport Science",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "elastic search photo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"labels\":[\n        \"huhu\",\n        \"hoho\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/search/photo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search",
+						"photo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
