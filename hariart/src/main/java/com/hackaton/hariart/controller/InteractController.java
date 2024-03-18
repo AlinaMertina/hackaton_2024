@@ -14,6 +14,10 @@ import com.hackaton.hariart.entity.Profil;
 import com.hackaton.hariart.entity.Publication;
 import com.hackaton.hariart.mapping.CommentRequest;
 import com.hackaton.hariart.mapping.ReactRequest;
+import com.hackaton.hariart.repository.ActionRepository;
+import com.hackaton.hariart.repository.CommentaireRepository;
+import com.hackaton.hariart.repository.ProfilRepository;
+import com.hackaton.hariart.repository.PublicationRepository;
 import com.hackaton.hariart.service.Interact;
 
 @RestController
@@ -22,24 +26,35 @@ import com.hackaton.hariart.service.Interact;
 public class InteractController {
     @Autowired
     private Interact service;
-
+    @Autowired
+    private ProfilRepository profilRepository;
+    @Autowired
+    private ActionRepository actionRepository;
+    @Autowired
+    private PublicationRepository publicationRepository;
+    @Autowired
+    private CommentaireRepository commentaireRepository;
 
     @PostMapping(path = "react")
 	public ResponseEntity<?> reagir(@RequestBody ReactRequest request){
-        Action action = request.getAction();
-        Profil profil = request.getProfil();
-        Publication publication = request.getPublication();
-	 	service.react(profil, publication, action);
+        Profil profil = profilRepository.findById(request.getProfil()).get();
+        Action action = actionRepository.findById(request.getAction()).get();
+        Publication publication = publicationRepository.findById(request.getPublication()).get();
+        service.react(profil, publication, action);
         return ResponseEntity.ok("reaction ok");
 	}
 
     @PostMapping(path = "comment")
-	public ResponseEntity<?> commenter(@RequestBody CommentRequest request){
-        Commentaire commentaire = request.getCommentaire();
-        Profil profil = request.getProfil();
-        Action action = request.getAction();
-        Publication publication = request.getPublication();
+	public ResponseEntity<?> commenter2(@RequestBody CommentRequest request){
+        Profil profil = profilRepository.findById(request.getProfil()).get();
+        Action action = actionRepository.findById(request.getAction()).get();
+        Publication publication = publicationRepository.findById(request.getPublication()).get();
+        Commentaire commentaire = new Commentaire(); 
+        commentaire.setValeur(request.getCommentaire());
+        commentaire.setProfil(profil);
+        commentaire.setPublication(publication);
         service.comment(profil, publication, action, commentaire);
         return ResponseEntity.ok("comment ok");
 	}
+
 }   

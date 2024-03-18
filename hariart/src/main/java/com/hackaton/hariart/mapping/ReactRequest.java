@@ -1,35 +1,41 @@
 package com.hackaton.hariart.mapping;
 
-import com.hackaton.hariart.entity.Action;
-import com.hackaton.hariart.entity.Profil;
-import com.hackaton.hariart.entity.Publication;
-
 public class ReactRequest {
-    public Profil profil;
-    public Publication publication;
-    public Action action;
+    public int profil;
+    public int publication;
+    public int action;
 
 
     public ReactRequest(){}
 
-    public Profil getProfil() {
+
+    public int getProfil() {
         return profil;
     }
-    public void setProfil(Profil profil) {
+
+
+    public void setProfil(int profil) {
         this.profil = profil;
     }
-    public Publication getPublication() {
+
+
+    public int getPublication() {
         return publication;
     }
-    public void setPublication(Publication publication) {
+
+
+    public void setPublication(int publication) {
         this.publication = publication;
     }
-    public Action getAction() {
+
+
+    public int getAction() {
         return action;
     }
-    public void setAction(Action action) {
+
+
+    public void setAction(int action) {
         this.action = action;
     }
-
     
 }
