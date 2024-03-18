@@ -37,13 +37,26 @@ public class ProfilController {
 	public ResponseEntity<Iterable<Profil>> findAll(){
 	 	return ResponseEntity.ok(repository.findAll());
 	}
+
+	@GetMapping("{id}")
+	public ResponseEntity<?> findById(@PathVariable int id){
+	 	return ResponseEntity.ok(repository.findById(id));
+	}
+
 	@GetMapping("proposer")
 	public ResponseEntity<?> propose(@RequestBody Propose entity) {
 		Profil profil = entity.getProfil();
 		int nbr = entity.getNumber();
 		return ResponseEntity.ok(service.proposer(profil, nbr));
 	}
+
+	@GetMapping("proposer/{id}/{nbr}")
+	public ResponseEntity<?> propose2(@PathVariable int id, @PathVariable int nbr) {
+		Profil profil = repository.findById(id).get();
+		return ResponseEntity.ok(service.proposer(profil, nbr));
+	}
 	
+
 
 
 }
