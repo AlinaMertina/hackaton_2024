@@ -37,8 +37,9 @@ public class InteractController {
 	public ResponseEntity<?> commenter(@RequestBody CommentRequest request){
         Commentaire commentaire = request.getCommentaire();
         Profil profil = request.getProfil();
+        Action action = request.getAction();
         Publication publication = request.getPublication();
-        service.comment(profil, publication, commentaire);
+        service.comment(profil, publication, action, commentaire);
         return ResponseEntity.ok("comment ok");
 	}
 }

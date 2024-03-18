@@ -26,43 +26,39 @@ public class Interact {
     @Autowired
     private CommentaireRepository commentaireRepository;
 
+
+    public Preference contains(Tags tag, List<Preference> preferences){
+        for (Preference preference : preferences) {
+            if(tag.getIdTag() == preference.getTags().getIdTag()    ){
+                return preference;
+            }
+        }
+        return null;
+    } 
+
     @Transactional
     public void react(Profil profil, Publication publication, Action action){
         List<Preference> preferences = profil.getPreferences();
         List<Tags> tags = publication.getTags();
-        for (Preference preference : preferences) {
-            if(tags.contains(preference.getTags())){
-                Preference temp = preference;
-                temp.setNote((temp.getNote() + action.getNote()));
-                preferenceRepository.save(temp);
+        Preference preference = null;
+        for (Tags tag : tags) {
+            preference = this.contains(tag, preferences);
+            if(preference == null){
+                preference = new Preference();
+                preference.setProfil(profil);
+                preference.setTags(tag);
+                preference.setNote(action.getNote());
             }else{
-                Preference temp = preference;
-                int note = action.getNote();
-                temp.setNote(note);
-                preferenceRepository.save(temp);
+                preference.setNote(preference.getNote() + action.getNote());
             }
+            preferenceRepository.save(preference);
         }
         publication.setNombreVue(publication.getNombreVue() + 1);
         publicationRepository.save(publication);
     }
 
-    public void comment(Profil profil, Publication publication, Commentaire commentaire){
-        List<Preference> preferences = profil.getPreferences();
-        List<Tags> tags = publication.getTags();
-        for (Preference preference : preferences) {
-            if(tags.contains(preference.getTags())){
-                Preference temp = preference;
-                temp.setNote((temp.getNote() + 5));
-                preferenceRepository.save(temp);
-            }else{
-                Preference temp = preference;
-                int note = 5;
-                temp.setNote(note);
-                preferenceRepository.save(temp);
-            }
-        }
+    public void comment(Profil profil, Publication publication, Action action, Commentaire commentaire){
+        react(profil, publication, action);
         commentaireRepository.save(commentaire);
-        publication.setNombreVue(publication.getNombreVue() + 1);
-        publicationRepository.save(publication);
     }   
 }
